@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+participant RetSimulator
+participant RetDriver
+database DB
+
+group SetRetCommunicationAddress
+
+User -> RetSimulator : put /IOPaths_1 /Ret_1
+RetSimulator -> DB : create /IOPaths_1{bufferToSend=/Ret_1}
+
+note over RetSimulator
+Start listenning on the ICP:/Ret_1
+end note
+
+end group
+
+
+@enduml

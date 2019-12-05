@@ -9,12 +9,12 @@ actor RetUser
 
 == L1 Physical layer ==
 
-RetDriverUser -[#green]> RetDriver : SetLinkSpeed 3 nr
+RetDriverUser -[#yellow]> RetDriver : SetLinkSpeed 3 nr
 loop 6 times every 300ms
-    RetDriver -[#green]> Ret : XID\n\
+    RetDriver -[#yellow]> Ret : XID\n\
     FF BF 81 F0 08 01 02 33 33 03 02 FF FF
 end
-RetDriver -[#red]> RetDriverUser : Print(Command Result)
+RetDriver -[#yellow]> RetDriverUser : Print(Command Result)
 
 == L2 Data link layer ==
 

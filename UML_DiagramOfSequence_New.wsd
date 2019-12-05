@@ -18,8 +18,8 @@ RetDriver -[#yellow]> RetDriverUser : Print(Command Result)
 
 == L2 Data link layer ==
 
-RetDriverUser -[#red]> RetDriver : DeviceScanMaskZero 3 r
-RetDriver -[#red]> Ret : XID\n\
+RetDriverUser -[#yellow]> RetDriver : DeviceScanMaskZero 3 r
+RetDriver -[#yellow]> Ret : XID\n\
     FF BF 81 F0 2A 01 13 00 00 00 00 00\n\
         00 00 00 00 00 00 00 00 00 00 00 00\n\
         00 00 03 13 00 00 00 00 00 00 00 00\n\
@@ -34,7 +34,7 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 .......
 
-RetDriverUser -[#red]> RetDriver : AddressAssignmentReq 3 r
+RetDriverUser -[#yellow]> RetDriver : AddressAssignmentReq 3 r
 RetDriver -[#yellow]> Ret : XID\n\
     FF BF 81 F0 11 01 09 4E 4B 34 36 35\n\
         30 30 30 30 02 01 03 04 01 01
@@ -49,7 +49,7 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 .......
 
 RetDriverUser -[#red]> RetDriver : DeviceScanMaskZero 3 nr
-RetDriver -[#red]> Ret : XID\n\
+RetDriver -[#yellow]> Ret : XID\n\
     FF BF 81 F0 2A 01 13 00 00 00 00 00\n\
         00 00 00 00 00 00 00 00 00 00 00 00\n\
         00 00 03 13 00 00 00 00 00 00 00 00\n\
@@ -72,9 +72,9 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 ......
 
 RetDriverUser -[#red]> RetDriver : LinkEstablishment 3 r
-RetDriver -[#red]> Ret : SNRM\n\
+RetDriver -[#yellow]> Ret : SNRM\n\
     03 93 
-Ret -[#red]> RetUser : Print(Command Result)
+Ret -[#yellow]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : UA
 Ret -[#red]> RetDriver : UA\n\
@@ -83,8 +83,8 @@ RetDriver -> RetDriverUser : Print(Command Result)
 
 ......
 
-RetDriverUser -[#red]> RetDriver : 3GPPReleaseID 3 r
-RetDriver -[#red]> Ret : XID\n\
+RetDriverUser -[#yellow]> RetDriver : 3GPPReleaseID 3 r
+RetDriver -[#yellow]> Ret : XID\n\
     03 BF 81 F0 03 05 01 08
 Ret -[#red]> RetUser : Print(Command Result)
 
@@ -95,8 +95,8 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 ......
 
-RetDriverUser -[#red]> RetDriver : AisgProtocolVersion 3 r
-RetDriver -[#red]> Ret : XID\n\
+RetDriverUser -[#yellow]> RetDriver : AisgProtocolVersion 3 r
+RetDriver -[#yellow]> Ret : XID\n\
     03 BF 81 F0 03 14 01 02
 Ret -[#red]> RetUser : Print(Command Result)
 

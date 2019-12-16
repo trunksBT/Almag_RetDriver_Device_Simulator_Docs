@@ -20,16 +20,17 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 RetDriverUser -[#red]> RetDriver : DeviceScanMaskZero 3 r
 RetDriver -[#red]> Ret : XID\n\
-    FF BF 81 F0 2A 01 13 00 00 00 00 00\n\
-        00 00 00 00 00 00 00 00 00 00 00 00\n\
-        00 00 03 13 00 00 00 00 00 00 00 00\n\
-        00 00 00 00 00 00 00 00 00 00 00
+    FF BF 81 F0 08 \n\
+        01 02 00 00 \n\
+        03 02 00 00
 Ret -[#red]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : DeviceScanUniqueId 3
 Ret -[#red]> RetDriver : XID\n\
-    00 BF 81 F0 15 01 09 4E 4B 34 36 35\n\
-        30 30 30 30 04 01 01 06 02 4E 4B 14 01 02
+    00 BF 81 F0 15\n\
+        01 09 4E 4B 34 36 35 30 30 30 30 04\n\
+        01 01 06\n\
+        02 4E 4B 14 01 02
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 .......
@@ -54,10 +55,9 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 RetDriverUser -[#red]> RetDriver : DeviceScanMaskZero 3 nr
 RetDriver -[#red]> Ret : XID\n\
-    FF BF 81 F0 2A 01 13 00 00 00 00 00\n\
-        00 00 00 00 00 00 00 00 00 00 00 00\n\
-        00 00 03 13 00 00 00 00 00 00 00 00\n\
-        00 00 00 00 00 00 00 00 00 00 00 
+    FF BF 81 F0 08 \n\
+        01 02 00 00 \n\
+        03 02 00 00
 
 ......
 
@@ -95,24 +95,28 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 RetDriverUser -[#green]> RetDriver : 3GPPReleaseID 3 r
 RetDriver -[#green]> Ret : XID\n\
-    03 BF 81 F0 03 05 01 08
+    03 BF 81 F0 03 \n\
+        05 01 08
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : 3GPPReleaseID 3
 Ret -[#green]> RetDriver : XID\n\
-    03 BF 81 F0 03 05 01 08
+    03 BF 81 F0 03 \n\
+        05 01 08
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 ......
 
 RetDriverUser -[#green]> RetDriver : AisgProtocolVersion 3 r
 RetDriver -[#green]> Ret : XID\n\
-    03 BF 81 F0 03 14 01 02
+    03 BF 81 F0 03 \n\
+        14 01 02
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : AisgProtocolVersion 3
 Ret -[#green]> RetDriver : XID\n\
-    03 BF 81 F0 03 14 01 02
+    03 BF 81 F0 03 \n\
+        14 01 02
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 == L7 Application layer ==

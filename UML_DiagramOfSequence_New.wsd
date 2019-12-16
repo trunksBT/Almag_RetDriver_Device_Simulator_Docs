@@ -36,14 +36,18 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 RetDriverUser -[#orange]> RetDriver : AddressAssignmentReq 3 r
 RetDriver -[#green]> Ret : XID\n\
-    FF BF 81 F0 11 01 09 4E 4B 34 36 35\n\
-        30 30 30 30 02 01 03 04 01 01
+    FF BF 81 F0 11\n\
+    01 09 4E 4B 34 36 35 30 30 30 30 \n\
+    02 01 03\n\
+    04 01 01
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : AddressAssignmentRes 3
 Ret -[#green]> RetDriver : XID\n\
-    03 BF 81 F0 12 01 09 4E 4B 34 36 35\n\
-        30 30 30 30 04 01 01 06 02 4E 4B
+    03 BF 81 F0 12\n\
+    01 09 4E 4B 34 36 35 30 30 30 30 \n\
+    04 01 01\n\
+    06 02 4E 4B
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 .......
@@ -58,15 +62,21 @@ RetDriver -[#red]> Ret : XID\n\
 ......
 
 RetDriverUser -[#red]> RetDriver : HDLCParametersReq 3 r
-RetDriver -[#red]> Ret : XID\n\
-    03 BF 81 80 12 05 04 F0 2D 00 00 06\n\
-        04 F0 2D 00 00 07 01 01 08 01 01 
+RetDriver -[#green]> Ret : XID\n\
+    03 BF 81 80 12 \n\
+    05 04 F0 2D 00 00\n\
+    06 04 F0 2D 00 00\n\
+    07 01 01\n\
+    08 01 01 
 Ret -[#red]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : HDLCParametersRes 3 nr
-Ret -[#red]> RetDriver : XID\n\
-    03 BF 81 80 12 05 04 00 00 02 50 06\n\
-        04 00 00 02 50 07 01 01 08 01 01
+Ret -[#green]> RetDriver : XID\n\
+    03 BF 81 80 12 \n\
+    05 04 00 00 02 50\n\
+    06 04 00 00 02 50\n\
+    07 01 01\n\
+    08 01 01
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 ......
@@ -108,12 +118,12 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 == L7 Application layer ==
 
 RetDriverUser -[#red]> RetDriver : CalibrateReq 3 r
-RetDriver -[#red]> Ret : I\n\
+RetDriver -[#green]> Ret : I\n\
     03 10 31 00 00 
 Ret -[#red]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : CalibrateRes 3 nr
-Ret -[#red]> RetDriver : I\n\
+Ret -[#green]> RetDriver : I\n\
     03 30 31 01 00 00 
 
 RetDriver -[#red]> RetDriverUser : Print(Command Result)

@@ -11,96 +11,99 @@ actor RetUser
 
 RetDriverUser -[#red]> RetDriver : SetLinkSpeed 3 nr
 loop 6 times every 300ms
-    RetDriver -[#red]> Ret : XID\n\
-    FF BF 81 F0 08 01 02 33 33 03 02 FF FF
+    RetDriver -[#red]> Ret : XID \n\
+    FF BF 81 F0 08 \n\
+        01 02 33 33 \n\
+        03 02 FF FF
 end
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 == L2 Data link layer ==
 
-RetDriverUser -[#red]> RetDriver : DeviceScanMaskZero 3 r
-RetDriver -[#red]> Ret : XID\n\
+RetDriverUser -[#red]> RetDriver : DeviceScan 3 r
+RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 08 \n\
         01 02 00 00 \n\
         03 02 00 00
 Ret -[#red]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : DeviceScanUniqueId 3
-Ret -[#red]> RetDriver : XID\n\
+Ret -[#green]> RetDriver : XID \n\
     00 BF 81 F0 15\n\
-        01 09 4E 4B 34 36 35 30 30 30 30 04\n\
-        01 01 06\n\
-        02 4E 4B 14 01 02
+        01 09 4E 4B 34 36 35 30 30 30 30 \n\
+        04 01 01 \n\
+        06 02 4E 4B \n\
+        14 01 02
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 .......
 
-RetDriverUser -[#orange]> RetDriver : AddressAssignmentReq 3 r
-RetDriver -[#green]> Ret : XID\n\
+RetDriverUser -[#orange]> RetDriver : AddressAssignment 3 r
+RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 11\n\
-    01 09 4E 4B 34 36 35 30 30 30 30 \n\
-    02 01 03\n\
-    04 01 01
+        01 09 4E 4B 34 36 35 30 30 30 30 \n\
+        02 01 03\n\
+        04 01 01
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : AddressAssignmentRes 3
-Ret -[#green]> RetDriver : XID\n\
+Ret -[#green]> RetDriver : XID \n\
     03 BF 81 F0 12\n\
-    01 09 4E 4B 34 36 35 30 30 30 30 \n\
-    04 01 01\n\
-    06 02 4E 4B
+        01 09 4E 4B 34 36 35 30 30 30 30 \n\
+        04 01 01\n\
+        06 02 4E 4B
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 .......
 
-RetDriverUser -[#red]> RetDriver : DeviceScanMaskZero 3 nr
-RetDriver -[#red]> Ret : XID\n\
+RetDriverUser -[#red]> RetDriver : DeviceScan 3 nr
+RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 08 \n\
         01 02 00 00 \n\
         03 02 00 00
 
 ......
 
-RetDriverUser -[#red]> RetDriver : HDLCParametersReq 3 r
-RetDriver -[#green]> Ret : XID\n\
+RetDriverUser -[#red]> RetDriver : HDLCParameters 3 r
+RetDriver -[#green]> Ret : XID \n\
     03 BF 81 80 12 \n\
-    05 04 F0 2D 00 00\n\
-    06 04 F0 2D 00 00\n\
-    07 01 01\n\
-    08 01 01 
+        05 04 F0 2D 00 00 \n\
+        06 04 F0 2D 00 00 \n\
+        07 01 01 \n\
+        08 01 01 
 Ret -[#red]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : HDLCParametersRes 3 nr
-Ret -[#green]> RetDriver : XID\n\
+Ret -[#green]> RetDriver : XID \n\
     03 BF 81 80 12 \n\
-    05 04 00 00 02 50\n\
-    06 04 00 00 02 50\n\
-    07 01 01\n\
-    08 01 01
+        05 04 00 00 02 50 \n\
+        06 04 00 00 02 50 \n\
+        07 01 01 \n\
+        08 01 01
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 ......
 
-RetDriverUser -[#green]> RetDriver : LinkEstablishmentReq 3 r
-RetDriver -[#green]> Ret : U::SNRM\n\
+RetDriverUser -[#green]> RetDriver : LinkEstablishment 3 r
+RetDriver -[#green]> Ret : U::SNRM \n\
     03 93 
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#green]> Ret : LinkEstablishmentRes 3
-Ret -[#green]> RetDriver : U::UA\n\
+Ret -[#green]> RetDriver : U::UA \n\
     03 73
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 ......
 
 RetDriverUser -[#green]> RetDriver : 3GPPReleaseID 3 r
-RetDriver -[#green]> Ret : XID\n\
+RetDriver -[#green]> Ret : XID \n\
     03 BF 81 F0 03 \n\
         05 01 08
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : 3GPPReleaseID 3
-Ret -[#green]> RetDriver : XID\n\
+Ret -[#green]> RetDriver : XID \n\
     03 BF 81 F0 03 \n\
         05 01 08
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
@@ -108,26 +111,26 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 ......
 
 RetDriverUser -[#green]> RetDriver : AisgProtocolVersion 3 r
-RetDriver -[#green]> Ret : XID\n\
+RetDriver -[#green]> Ret : XID \n\
     03 BF 81 F0 03 \n\
         14 01 02
 Ret -[#green]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : AisgProtocolVersion 3
-Ret -[#green]> RetDriver : XID\n\
+Ret -[#green]> RetDriver : XID \n\
     03 BF 81 F0 03 \n\
         14 01 02
 RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 == L7 Application layer ==
 
-RetDriverUser -[#red]> RetDriver : CalibrateReq 3 r
-RetDriver -[#green]> Ret : I\n\
+RetDriverUser -[#red]> RetDriver : Calibrate 3 r
+RetDriver -[#green]> Ret : I \n\
     03 10 31 00 00 
 Ret -[#red]> RetUser : Print(Command Result)
 
 RetUser -[#red]> Ret : CalibrateRes 3 nr
-Ret -[#green]> RetDriver : I\n\
+Ret -[#green]> RetDriver : I \n\
     03 30 31 01 00 00 
 
 RetDriver -[#red]> RetDriverUser : Print(Command Result)

@@ -9,36 +9,35 @@ actor RetUser
 
 == L1 Physical layer ==
 
-RetDriverUser -[#red]> RetDriver : SetLinkSpeed 3 nr
+RetDriverUser -[#green]> RetDriver : SetLinkSpeed 3 nr
 loop 6 times every 300ms
-    RetDriver -[#red]> Ret : XID \n\
+    RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 08 \n\
         01 02 33 33 \n\
         03 02 FF FF
 end
-RetDriver -[#red]> RetDriverUser : Print(Command Result)
+RetDriver -[#green]> RetDriverUser : Print(Command Result)
 
 == L2 Data link layer ==
 
-RetDriverUser -[#red]> RetDriver : DeviceScan 3 r
+RetDriverUser -[#green]> RetDriver : DeviceScan 3 r
 RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 08 \n\
         01 02 00 00 \n\
         03 02 00 00
-Ret -[#red]> RetUser : Print(Command Result)
+Ret -[#green]> RetUser : Print(Command Result)
 
-RetUser -[#red]> Ret : DeviceScanUniqueId 3
+RetUser -[#red]> Ret : DeviceScan 3
 Ret -[#green]> RetDriver : XID \n\
-    00 BF 81 F0 15\n\
+    00 BF 81 F0 12\n\
         01 09 4E 4B 34 36 35 30 30 30 30 \n\
         04 01 01 \n\
-        06 02 4E 4B \n\
-        14 01 02
-RetDriver -[#red]> RetDriverUser : Print(Command Result)
+        06 02 4E 4B
+RetDriver -[#green]> RetDriverUser : Print(Command Result)
 
 .......
 
-RetDriverUser -[#orange]> RetDriver : AddressAssignment 3 r
+RetDriverUser -[#green]> RetDriver : AddressAssignment 3 r
 RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 11\n\
         01 09 4E 4B 34 36 35 30 30 30 30 \n\
@@ -46,7 +45,7 @@ RetDriver -[#green]> Ret : XID \n\
         04 01 01
 Ret -[#green]> RetUser : Print(Command Result)
 
-RetUser -[#red]> Ret : AddressAssignmentRes 3
+RetUser -[#red]> Ret : AddressAssignment 3
 Ret -[#green]> RetDriver : XID \n\
     03 BF 81 F0 12\n\
         01 09 4E 4B 34 36 35 30 30 30 30 \n\
@@ -56,7 +55,7 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 .......
 
-RetDriverUser -[#red]> RetDriver : DeviceScan 3 nr
+RetDriverUser -[#green]> RetDriver : DeviceScan 3 nr
 RetDriver -[#green]> Ret : XID \n\
     FF BF 81 F0 08 \n\
         01 02 00 00 \n\
@@ -64,7 +63,7 @@ RetDriver -[#green]> Ret : XID \n\
 
 ......
 
-RetDriverUser -[#red]> RetDriver : HDLCParameters 3 r
+RetDriverUser -[#green]> RetDriver : HDLCParameters 3 r
 RetDriver -[#green]> Ret : XID \n\
     03 BF 81 80 12 \n\
         05 04 F0 2D 00 00 \n\
@@ -73,7 +72,7 @@ RetDriver -[#green]> Ret : XID \n\
         08 01 01 
 Ret -[#red]> RetUser : Print(Command Result)
 
-RetUser -[#red]> Ret : HDLCParametersRes 3 nr
+RetUser -[#green]> Ret : HDLCParameters 3 nr
 Ret -[#green]> RetDriver : XID \n\
     03 BF 81 80 12 \n\
         05 04 00 00 02 50 \n\
@@ -124,7 +123,7 @@ RetDriver -[#red]> RetDriverUser : Print(Command Result)
 
 == L7 Application layer ==
 
-RetDriverUser -[#red]> RetDriver : Calibrate 3 r
+RetDriverUser -[#green]> RetDriver : Calibrate 3 r
 RetDriver -[#green]> Ret : I \n\
     03 10 31 00 00 
 Ret -[#red]> RetUser : Print(Command Result)
